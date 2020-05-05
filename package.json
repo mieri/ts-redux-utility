@@ -20,8 +20,14 @@
     "posttest": "npm.cmd run check"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^10.0.3",
+    "chai": "^4.2.0",
     "gts": "^2.0.0",
-    "typescript": "~3.8.0",
-    "@types/node": "^10.0.3"
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
   }
 }
