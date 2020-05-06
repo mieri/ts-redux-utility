@@ -25,8 +25,10 @@ export function recursiveSet<T extends {}>(
         },
       };
     } else {
-      // @ts-ignore
-      result[key] = currentValue;
+      result = {
+        ...result,
+        [key]: currentValue,
+      };
     }
   }
 
