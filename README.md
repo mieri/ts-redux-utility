@@ -19,13 +19,16 @@ const change = { b: 4 };
 const result = recursiveSet(intitial, change);
 
 console.log(result) // { a: 1, b: 4, c: 3 }
+console.log(initial === result) // false, object had a change applied so it's replaced.
 ```
 
 Example 2: Change inner object a´s property b from 2 -> 4
 ```typescript
-const initial = { a: { b: 2 }, c: 1 };
+const c = {value:1};
+const initial = { a: { b: 2 }, c };
 const change = { a: { b: 4 } };
 const result = recursiveSet(intitial, change);
 
 console.log(result) // { a: { b: 4 }, c: 1 }
+console.log(c === result.c) // true, c was never changed so the same object is used.
 ```
