@@ -1,3 +1,7 @@
 {
-  "extends": "./node_modules/gts/"
+  "plugins": ["mocha"],
+  "extends": ["./node_modules/gts/", "plugin:mocha/recommended"],
+  "env": {
+    "mocha": true
+  }
 }

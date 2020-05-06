@@ -1,23 +1,32 @@
 import {RecursivePartial} from '../types/RecursivePartial';
 
-export function recursiveSet<T>(target: T, properties: RecursivePartial<T>): T {
-  let result = {...target};
+export function recursiveSet<T extends {}>(
+  target: T,
+  properties: RecursivePartial<T>
+): T {
+  let result = target;
 
-  for (let key in result) {
-    const value = properties[key];
+  for (const key in result) {
+    const currentValue = properties[key];
 
-    if (typeof value === 'undefined') continue;
+    if (typeof currentValue === 'undefined') continue;
 
-    if (typeof value === 'object' && !Array.isArray(value)) {
+    if (typeof currentValue === 'object' && !Array.isArray(currentValue)) {
+      const resultValue = result[key];
       // @ts-ignore: Even though we check for undefined you cannot set Partial<T> as T
-      const innerResult = recursiveSet(result[key], value);
-      result[key] = {
-        ...result[key],
-        ...innerResult,
+      const innerResult = recursiveSet(resultValue, currentValue);
+      if (innerResult === resultValue) continue;
+
+      result = {
+        ...result,
+        [key]: {
+          ...resultValue,
+          ...innerResult,
+        },
       };
     } else {
       // @ts-ignore
-      result[key] = value;
+      result[key] = currentValue;
     }
   }
 
