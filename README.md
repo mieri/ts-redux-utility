@@ -9,6 +9,18 @@ Will not return a new object if no changes where applied.
 
 ## Functions
 
+### `filter` 
+Filter an IList\<T\>
+```typescript
+const initial: IList<string> = { a:1,b:2,c:3 };
+const result = filter(initial, item => item > 1);
+console.log(result) // { b:2, c:3 };
+```
+### `pick` 
+Pick properties from an object
+### `pickMany` 
+Pick properties from many objects returned as an IList\<T\>
+### `updateMany`
 ### `recursiveSet`
 Recursively set an objects values/subvalues and if any change has been applied return new object with the changes.
 
