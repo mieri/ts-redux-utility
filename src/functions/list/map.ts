@@ -5,8 +5,7 @@ export function map<T, F extends (item: T) => any>(
   fn: F
 ): IList<ReturnType<F>> {
   const result = Object.entries(items).reduce((acc, [key, item]) => {
-    const mapped = fn(item);
-    return {...acc, [key]: mapped !== item ? mapped : item};
+    return {...acc, [key]: fn(item)};
   }, {});
   return result;
 }

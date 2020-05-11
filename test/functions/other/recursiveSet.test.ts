@@ -1,5 +1,5 @@
-import {recursiveSet} from '../../src/functions/recursiveSet';
 import {expect} from 'chai';
+import {recursiveSet} from '../../../src';
 
 describe('Function recursiveSet', () => {
   it('should only change supplied properties', () => {

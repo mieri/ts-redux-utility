@@ -26,12 +26,35 @@ const result = map(initial, item => item * 2);
 console.log(result) // { a: 2, b: 4, c: 6 }
 ```
 
-### `map`
-Comparable to an array.map() for IList\<T\>
+### `partialSet`
+Partially update properties of an IList\<T\>.
 ```typescript
-const initial = { a: 1, b: 2, c: 3 }
-const result = map(initial, item => item * 2);
-console.log(result) // { a: 2, b: 4, c: 6 }
+const initial: IList<{a:string, b: string}> = { 
+    first: { a: 'first-a', b: 'first-b' }, 
+    second: { a: 'second-a', b: 'second-b' } }
+
+const result1 = partialSet(initial, { a: 'new value' });
+console.log(result1) 
+//  { 
+//      first: {
+//          a: 'new value', b: 'first-b' 
+//      }, 
+//      second: { 
+//          a: 'new value', b: 'second-b' 
+//      } 
+//  }
+
+const result2 = partialSet(initial, item => ({ a: `item.a ${appended}`}))
+console.log(result1) 
+//  { 
+//      first: {
+//          a: 'first-a appended', b: 'first-b' 
+//      }, 
+//      second: { 
+//          a: 'second-a appended', b: 'second-b' 
+//      } 
+//  }
+
 ```
 
 
