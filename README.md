@@ -7,20 +7,31 @@ Simple functions to make it easier to work with redux like reducers.
 Never mutates input, returns new object based on input.  
 Will not return a new object if no changes where applied.
 
-## Functions
+## `IList<T>` functions
 
 ### `filter` 
 Filter an IList\<T\>
 ```typescript
-const initial: IList<string> = { a:1,b:2,c:3 };
+const initial: IList<string> = { a:1, b:2, c:3 };
 const result = filter(initial, item => item > 1);
 console.log(result) // { b:2, c:3 };
 ```
-### `pick` 
-Pick properties from an object
-### `pickMany` 
-Pick properties from many objects returned as an IList\<T\>
-### `updateMany`
+
+
+### `map`
+Comparable to an array.map() for IList\<T\>
+```typescript
+const initial = { a: 1, b: 2, c: 3 }
+const result = map(initial, item => item * 2);
+console.log(result) // { a: 2, b: 4, c: 6 }
+```
+
+
+---
+
+
+## Other
+
 ### `recursiveSet`
 Recursively set an objects values/subvalues and if any change has been applied return new object with the changes.
 
@@ -57,3 +68,5 @@ const result = recursiveSet(intitial, change);
 console.log(result) // { a: 1 }
 console.log(initial === result) // true, no changes applied so initial object is returned.
 ```
+
+---
