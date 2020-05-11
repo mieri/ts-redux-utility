@@ -1,4 +1,4 @@
-import {IList} from '../interfaces/list';
+import {IList} from '../../interfaces/list';
 
 export function map<T, F extends (item: T) => any>(
   items: IList<T>,

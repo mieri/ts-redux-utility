@@ -26,6 +26,14 @@ const result = map(initial, item => item * 2);
 console.log(result) // { a: 2, b: 4, c: 6 }
 ```
 
+### `map`
+Comparable to an array.map() for IList\<T\>
+```typescript
+const initial = { a: 1, b: 2, c: 3 }
+const result = map(initial, item => item * 2);
+console.log(result) // { a: 2, b: 4, c: 6 }
+```
+
 
 ---
 

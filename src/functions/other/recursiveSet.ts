@@ -1,4 +1,4 @@
-import {RecursivePartial} from '../types/RecursivePartial';
+import {RecursivePartial} from '../../types/RecursivePartial';
 
 export function recursiveSet<T extends {}>(
   target: T,

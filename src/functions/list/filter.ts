@@ -1,4 +1,4 @@
-import {IList} from '../interfaces/list';
+import {IList} from '../../interfaces/list';
 
 export function filter<T>(
   dictionary: IList<T>,
